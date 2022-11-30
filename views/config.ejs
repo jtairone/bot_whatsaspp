@@ -1,0 +1,91 @@
+<%- include('partes/header.ejs') %>
+<body>
+    <%- include('partes/navbar.ejs') %>
+   <div class="container text-center">
+        <br/>
+        <h1>CONFIGURAÇÕES</h1>
+        <hr>
+        <form method="post" action="/dados">
+            <div class="card">
+                <div class="card-header">
+                  Banco de dados
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">Host</label>
+                          <input type="text" class="form-control" id="inputhost" placeholder="IP HOST" name="host" value="<%- data.host -%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">Porta</label>
+                          <input type="text" class="form-control" id="inputport" placeholder="Porta" name="port" value="<%- data.port -%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">SERVICE_NAME/SID</label>
+                          <input type="text" class="form-control" id="inputSid" placeholder="SID" name="sid" value="<%- data.sid -%>">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">Usuário</label>
+                          <input type="text" class="form-control" id="inputuser" placeholder="usuário" name="user" value="<%- data.user -%>"> 
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">Senha</label>
+                          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="pass" value="<%- data.pass -%>">
+                        </div>
+                      </div>
+                      <p style="font-size: 75%; color: red;">* Informações para conexão no Banco de dados</p>
+                      <p style="font-size: 75%; color: red;">* Cadastrar na 517 aba endereço campo Telefone-1 ddd+telefone colaborador tudo junto</p>
+                </div>
+              </div>
+              <br/>
+              <div class="card">
+                <div class="card-header">
+                  Configuração BOT  
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Hora para Envio</label>
+                            <input type="time" class="form-control" id="inputhora" name="hora" value="<%- dataB.hora -%>">
+                            <p style="font-size: 75%; color: red;">* Hora do Envio diário das imagens!</p>
+                        </div>  
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Local Arquivos</label>
+                            <input type="text" class="form-control" id="inputlocal" name="local" value="<%- dataB.local -%>">
+                            <p style="font-size: 75%; color: red;">* Colocar caminho e no final não esquecer colocar \<br>* Salvar imagens no formato PNG</p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Mensagem</label>
+                            <input type="text" class="form-control" id="inputmsg" name="msg" value="<%- dataB.msg -%>">
+                            <p style="font-size: 75%; color: red;">* Sera enviado Código e Nome RCA e a mensagem escrita aqui!</p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Formato arquivos:</label>
+                             <input type="hidden" id="formatobd" value="<%- dataB.formato -%>">
+                            <select class="form-select" id="formato" name="formato" aria-label="Default select example">
+                              <option value="png">PNG</option>
+                              <option value="jpg">JPG</option>
+                              <option value="pdf">PDF</option>
+                              <option value="doc">DOC</option>
+                              <option value="docx">DOCX</option>
+                              <option value="xls">XLS</option>
+                              <option value="xlsx">XLSX</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <button type="submit" class="btn btn-primary">Salvar/Atualizar</button>
+          </form>
+   </div>
+</body>
+<%- include('partes/footer.ejs') %>
+<script>
+  let select = document.getElementById('formato');
+  let formato = document.getElementById('formatobd').value;
+  for (i = 0; i < select.length; i++) {
+     if(select.options[i].value ==  formato){
+        select.options[i].setAttribute('selected', 'selected');
+     }
+  }
+</script>

@@ -1,0 +1,13 @@
+Rodar em Windows
+*ja entendo tenha instalado o node.js e npm(instalado junto com o nodejs) 
+assim baixar Rodar
+npm install //instala os node_modules
+ai pode usar start no projeto usando 
+node server.js 
+
+Aconselho a usar o nodemon veja como instalar ai pode iniciar o projeto usando
+npm start
+com o nodemon sempre fizer qualquer alteração no código vai restart o código.
+
+
+nos dois cenarios instalar o PM2 pra gerenciar a execução do NODE.JS

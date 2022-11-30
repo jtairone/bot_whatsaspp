@@ -1,0 +1,4 @@
+node_modules/
+instantclient/
+tokens/
+database.sqlite

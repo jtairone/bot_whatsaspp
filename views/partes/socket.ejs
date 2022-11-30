@@ -1,0 +1,20 @@
+<script>
+    const socket = io('http://localhost:<%- port %>')
+    socket.on('connection')
+    socket.on('message', (data) => {
+        console.log(data);
+        if(data == 'CONNECTED'){
+            document.querySelector('h2').innerHTML = 'CONECTADO!';
+            document.querySelector('p').style.display = 'none';
+            document.getElementById('img1').style.display = 'none';
+            socket.disconnect(true);            
+        }else{
+        }
+    })
+    socket.on('ready', (data) => {
+        console.log(data);
+        document.getElementById('img1').src = data;
+    })
+    socket.emit('message')
+    socket.emit('ready')
+</script>
